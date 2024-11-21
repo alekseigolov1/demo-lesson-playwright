@@ -8,6 +8,7 @@ export class LoginPage {
   readonly signInButton: Locator
   readonly usernameField: Locator
   readonly passwordField: Locator
+  readonly authErrorMessage : Locator
   // add more locators here
 
   constructor(page: Page) {
@@ -15,6 +16,7 @@ export class LoginPage {
     this.signInButton = this.page.getByTestId('signIn-button')
     this.usernameField = this.page.getByTestId('username-input')
     this.passwordField = this.page.getByTestId('password-input')
+    this.authErrorMessage = this.page.getByTestId('authorizationError-popup-close-button')
     // continue with the rest of the implementation below
   }
 
