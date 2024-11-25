@@ -1,23 +1,23 @@
 import { Locator, Page } from '@playwright/test'
 import { OrderPage } from './order-page'
 import { SERVICE_URL } from '../../config/env-data'
+import { BasePage } from './base-page'
 
-export class LoginPage {
-  readonly page: Page
+export class LoginPage extends BasePage{
+  // readonly page: Page
   readonly url: string = SERVICE_URL
   readonly signInButton: Locator
   readonly usernameField: Locator
   readonly passwordField: Locator
-  readonly authErrorMessage : Locator
-  // add more locators here
+  readonly authErrorMessage: Locator
 
   constructor(page: Page) {
-    this.page = page
+    // this.page = page
+    super(page)
     this.signInButton = this.page.getByTestId('signIn-button')
     this.usernameField = this.page.getByTestId('username-input')
     this.passwordField = this.page.getByTestId('password-input')
     this.authErrorMessage = this.page.getByTestId('authorizationError-popup-close-button')
-    // continue with the rest of the implementation below
   }
 
   async open() {
